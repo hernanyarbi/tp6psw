@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Evaluacion</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ evaluacion.id }}</td>
+            </tr>
+            <tr>
+                <th>Lu</th>
+                <td>{{ evaluacion.lu }}</td>
+            </tr>
+            <tr>
+                <th>Notaconcepto</th>
+                <td>{{ evaluacion.notaConcepto }}</td>
+            </tr>
+            <tr>
+                <th>Notaescrito</th>
+                <td>{{ evaluacion.notaEscrito }}</td>
+            </tr>
+            <tr>
+                <th>Notaoral</th>
+                <td>{{ evaluacion.notaOral }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('evaluacion_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('evaluacion_edit', { 'id': evaluacion.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

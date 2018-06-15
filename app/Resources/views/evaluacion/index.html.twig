@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Evaluacions list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Lu</th>
+                <th>Notaconcepto</th>
+                <th>Notaescrito</th>
+                <th>Notaoral</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for evaluacion in evaluacions %}
+            <tr>
+                <td><a href="{{ path('evaluacion_show', { 'id': evaluacion.id }) }}">{{ evaluacion.id }}</a></td>
+                <td>{{ evaluacion.lu }}</td>
+                <td>{{ evaluacion.notaConcepto }}</td>
+                <td>{{ evaluacion.notaEscrito }}</td>
+                <td>{{ evaluacion.notaOral }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('evaluacion_show', { 'id': evaluacion.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('evaluacion_edit', { 'id': evaluacion.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('evaluacion_new') }}">Create a new evaluacion</a>
+        </li>
+    </ul>
+{% endblock %}
